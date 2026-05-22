@@ -9,7 +9,7 @@ Students can browse listings, save favorites, register as buyers or sellers, pos
 | Layer                  | Technologies                                                     |
 | ---------------------- | ---------------------------------------------------------------- |
 | **Frontend**           | Next.js 16, React 19, Tailwind CSS v4, TypeScript                |
-| **Backend** (optional) | Express, Prisma, PostgreSQL — not wired to the UI for submission |
+| **Backend** | Express, Prisma, PostgreSQL |
 
 ## Features
 
