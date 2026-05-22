@@ -143,20 +143,20 @@ function BrowseContent() {
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
 
-      <div className="bg-primary text-white">
-        <div className="container mx-auto px-4 py-8">
-          <Link href="/" className="flex items-center gap-2 text-white/80 hover:text-white mb-4 w-fit text-sm">
-            <ArrowLeft className="w-5 h-5" />
-            Back
+      <div className="page-banner text-primary-foreground">
+        <div className="container mx-auto px-4 py-10 md:py-12 relative">
+          <Link href="/" className="inline-flex items-center gap-2 text-primary-foreground/75 hover:text-primary-foreground mb-5 w-fit text-sm transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to home
           </Link>
-          <h1 className="text-3xl md:text-4xl font-bold mb-1">Browse All Items</h1>
-          <p className="text-white/90 text-sm">Search and filter across all categories</p>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Browse All Items</h1>
+          <p className="text-primary-foreground/75 text-sm md:text-base">Search and filter across all categories</p>
         </div>
       </div>
 
       <div className="flex flex-1 relative">
-        <aside className="hidden lg:block w-72 bg-card border-r border-border p-6 shrink-0">
-          <h2 className="text-lg font-bold mb-6">Filters</h2>
+        <aside className="hidden lg:block w-72 bg-sidebar border-r border-border p-6 shrink-0">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-6">Filters</h2>
           {filterPanel}
         </aside>
 
@@ -222,9 +222,10 @@ function BrowseContent() {
               ))}
             </div>
           ) : mounted ? (
-            <div className="text-center py-16 bg-card rounded-xl border border-dashed border-border">
-              <Search className="w-14 h-14 mx-auto text-muted-foreground mb-4 opacity-40" />
-              <p className="text-muted-foreground">No items match your filters</p>
+            <div className="text-center py-20 card-elevated border-dashed">
+              <Search className="w-12 h-12 mx-auto text-muted-foreground/40 mb-4" />
+              <p className="text-foreground font-medium mb-1">No items match your filters</p>
+              <p className="text-muted-foreground text-sm">Try adjusting search or price range</p>
             </div>
           ) : null}
         </main>

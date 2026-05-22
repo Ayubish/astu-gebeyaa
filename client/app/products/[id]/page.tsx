@@ -86,9 +86,9 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
 
-      <div className="bg-primary/95 text-white">
-        <div className="container mx-auto px-4 py-4">
-          <Link href="/browse" className="flex items-center gap-2 text-white/80 hover:text-white w-fit text-sm">
+      <div className="page-banner text-primary-foreground">
+        <div className="container mx-auto px-4 py-4 relative">
+          <Link href="/browse" className="inline-flex items-center gap-2 text-primary-foreground/75 hover:text-primary-foreground w-fit text-sm transition-colors">
             <ArrowLeft className="w-4 h-4" />
             Back to browse
           </Link>
@@ -98,7 +98,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
       <div className="container mx-auto px-4 py-8 flex-1">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex flex-col gap-3">
-            <div className="relative w-full bg-muted rounded-2xl overflow-hidden aspect-[4/3]">
+            <div className="relative w-full bg-muted rounded-2xl overflow-hidden aspect-[4/3] ring-1 ring-border/50 shadow-sm">
               <img
                 src={product.image || "/placeholder.svg"}
                 alt={product.title}
@@ -144,7 +144,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-xl p-4">
+            <div className="card-elevated p-4">
               <h3 className="font-semibold text-foreground mb-3">Seller</h3>
               <div className="flex items-center justify-between">
                 <span className="font-medium">{product.seller}</span>
@@ -160,7 +160,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-xl p-4 text-sm space-y-2">
+            <div className="card-elevated p-4 text-sm space-y-2">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Condition</span>
                 <span className="font-medium">{product.condition}</span>

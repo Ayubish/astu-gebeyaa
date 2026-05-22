@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Search } from "lucide-react";
+import { Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CATEGORIES } from "@/lib/constants";
@@ -16,6 +16,12 @@ const TRENDING_TAGS = [
   { label: "Laptops", query: "macbook" },
   { label: "Vehicles", query: "toyota" },
   { label: "Fashion", query: "jacket" },
+];
+
+const STATS = [
+  { value: "14+", label: "Live listings" },
+  { value: "8", label: "Categories" },
+  { value: "100%", label: "Campus verified" },
 ];
 
 export default function HeroSection({ onSearch }: HeroSectionProps) {
@@ -43,28 +49,32 @@ export default function HeroSection({ onSearch }: HeroSectionProps) {
   };
 
   return (
-    <section className="bg-gradient-to-br from-primary via-primary to-primary/85 py-14 md:py-20">
-      <div className="container mx-auto px-4">
+    <section className="mesh-hero relative py-16 md:py-24 overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.07] pointer-events-none bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[length:24px_24px]" />
+
+      <div className="container mx-auto px-4 relative">
         <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
-          <p className="text-primary-foreground/80 text-sm font-medium mb-2 tracking-wide uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-primary-foreground/90 text-xs font-medium mb-5">
+            <Sparkles className="w-3.5 h-3.5 text-accent" />
             ASTU Campus Marketplace
-          </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-3">
-            What are you looking for?
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground mb-4 tracking-tight text-balance">
+            Buy & sell with fellow students
           </h2>
-          <p className="text-primary-foreground/80 mb-8 text-sm md:text-base">
-            Buy and sell with fellow students at Adama Science and Technology
-            University{" "}
+          <p className="text-primary-foreground/75 mb-10 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+            Your trusted marketplace at Adama Science and Technology University — phones,
+            books, furniture, and more.
           </p>
 
           <form
             onSubmit={handleSearch}
-            className="flex flex-col md:flex-row items-stretch gap-3 w-full bg-white/10 p-2 rounded-2xl backdrop-blur-sm border border-white/20"
+            className="flex flex-col sm:flex-row items-stretch gap-2 w-full max-w-2xl mx-auto bg-white rounded-2xl p-2 shadow-2xl shadow-black/20"
           >
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="h-11 px-4 rounded-xl border-0 bg-white text-foreground focus:outline-none focus:ring-2 focus:ring-accent md:w-52 text-sm"
+              className="h-12 px-4 rounded-xl border border-border bg-muted/50 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 sm:w-44 text-sm font-medium shrink-0"
               aria-label="Category"
             >
               <option value="">All Categories</option>
@@ -75,44 +85,43 @@ export default function HeroSection({ onSearch }: HeroSectionProps) {
               ))}
             </select>
 
-            <div className="flex-1 relative">
+            <div className="flex-1 relative min-w-0">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <Input
                 name="search"
                 placeholder="Search phones, books, furniture..."
-                className="w-full h-11 px-4 bg-white border-0 rounded-xl text-foreground pr-12 focus-visible:ring-2 focus-visible:ring-accent"
+                className="w-full h-12 pl-10 pr-4 bg-transparent border-0 rounded-xl text-foreground shadow-none focus-visible:ring-0"
               />
-              <button
-                type="submit"
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-md hover:bg-muted transition"
-                aria-label="Search"
-              >
-                <Search className="w-5 h-5 text-muted-foreground" />
-              </button>
             </div>
 
             <Button
               type="submit"
-              className="h-11 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold rounded-xl px-6"
+              className="h-12 rounded-xl px-6 font-semibold shrink-0 shadow-sm"
             >
               Search
             </Button>
           </form>
 
-          <div className="mt-6 flex flex-wrap gap-2 justify-center items-center">
-            <span className="text-sm text-primary-foreground/70">
-              Trending:
-            </span>
+          <div className="mt-5 flex flex-wrap gap-2 justify-center items-center">
+            <span className="text-xs text-primary-foreground/60 font-medium">Popular:</span>
             {TRENDING_TAGS.map((tag) => (
-              <Button
+              <button
                 key={tag.label}
                 type="button"
-                variant="outline"
-                size="sm"
                 onClick={() => handleTrending(tag.query)}
-                className="bg-white/15 border-white/30 text-primary-foreground hover:bg-white/25 rounded-full"
+                className="px-3 py-1 text-xs font-medium rounded-full bg-white/10 border border-white/20 text-primary-foreground hover:bg-white/20 transition-colors"
               >
                 {tag.label}
-              </Button>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-xl md:text-2xl font-bold text-primary-foreground">{stat.value}</p>
+                <p className="text-[11px] md:text-xs text-primary-foreground/60 mt-0.5">{stat.label}</p>
+              </div>
             ))}
           </div>
         </div>

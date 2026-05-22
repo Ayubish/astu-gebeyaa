@@ -51,16 +51,17 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md">
-        <div className="flex flex-col items-center gap-1 mb-6">
-          <div className="relative w-20 h-20">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4 py-10 relative overflow-hidden">
+      <div className="absolute inset-0 mesh-hero opacity-[0.07] pointer-events-none" />
+      <div className="w-full max-w-md relative">
+        <div className="flex flex-col items-center gap-2 mb-8">
+          <div className="relative w-16 h-16 rounded-2xl bg-primary/5 p-2 ring-1 ring-primary/10">
             <Image src="/images/gebeyalogo.svg" alt="ASTU Gebeya" fill className="object-contain" priority />
           </div>
-          <h1 className="text-3xl font-extrabold text-primary">ASTU Gebeya</h1>
+          <h1 className="text-2xl font-bold text-primary tracking-tight">ASTU Gebeya</h1>
         </div>
 
-        <div className="bg-card rounded-2xl border border-border shadow-xl p-8 animate-fade-in-up">
+        <div className="card-elevated shadow-xl p-8 animate-fade-in-up">
           {step === "choice" && (
             <>
               <h2 className="text-2xl font-bold text-foreground mb-1 text-center">Join ASTU Gebeya</h2>
@@ -70,7 +71,7 @@ export default function RegisterPage() {
                 <button
                   type="button"
                   onClick={() => setStep("buyer")}
-                  className="w-full p-5 border-2 border-primary rounded-xl hover:bg-primary/5 transition text-left"
+                  className="w-full p-5 border-2 border-primary/30 rounded-2xl hover:bg-primary/5 hover:border-primary transition text-left"
                 >
                   <div className="text-3xl mb-2">🛍️</div>
                   <h3 className="font-bold text-primary">I&apos;m a Buyer</h3>
@@ -80,7 +81,7 @@ export default function RegisterPage() {
                 <button
                   type="button"
                   onClick={() => setStep("seller")}
-                  className="w-full p-5 border-2 border-accent rounded-xl hover:bg-accent/5 transition text-left"
+                  className="w-full p-5 border-2 border-accent/40 rounded-2xl hover:bg-accent/10 hover:border-accent transition text-left"
                 >
                   <div className="text-3xl mb-2">📦</div>
                   <h3 className="font-bold text-foreground">I&apos;m a Seller</h3>

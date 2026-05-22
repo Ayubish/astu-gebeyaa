@@ -32,16 +32,18 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md">
-        <div className="flex flex-col items-center gap-1 mb-6">
-          <div className="relative w-20 h-20">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4 py-10 relative overflow-hidden">
+      <div className="absolute inset-0 mesh-hero opacity-[0.07] pointer-events-none" />
+      <div className="w-full max-w-md relative">
+        <div className="flex flex-col items-center gap-2 mb-8">
+          <div className="relative w-16 h-16 rounded-2xl bg-primary/5 p-2 ring-1 ring-primary/10">
             <Image src="/images/gebeyalogo.svg" alt="ASTU Gebeya" fill className="object-contain" priority />
           </div>
-          <h1 className="text-3xl font-extrabold text-primary">ASTU Gebeya</h1>
+          <h1 className="text-2xl font-bold text-primary tracking-tight">ASTU Gebeya</h1>
+          <p className="text-xs text-muted-foreground">Campus marketplace</p>
         </div>
 
-        <div className="bg-card rounded-2xl border border-border shadow-xl p-8 animate-fade-in-up">
+        <div className="card-elevated shadow-xl p-8 animate-fade-in-up">
           <h2 className="text-2xl font-bold text-foreground mb-1 text-center">Welcome Back</h2>
           <p className="text-muted-foreground mb-6 text-center text-sm">
             Sign in to your account

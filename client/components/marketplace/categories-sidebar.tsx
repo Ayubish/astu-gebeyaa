@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronRight } from "lucide-react";
 import { CATEGORIES } from "@/lib/constants";
 import { getCategoryListingCounts, getTotalListingCount } from "@/lib/products";
+import { cn } from "@/lib/utils";
 
 interface CategoriesSidebarProps {
   selectedCategory?: string;
@@ -29,28 +29,38 @@ export default function CategoriesSidebar({
   }, []);
 
   return (
-    <aside className="hidden md:block w-64 bg-background border-r border-border sticky top-[4.5rem] h-[calc(100vh-4.5rem)] overflow-y-auto">
-      <div className="p-4">
-        <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-          Browse Categories
+    <aside className="hidden md:block w-72 shrink-0 border-r border-border bg-sidebar sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+      <div className="p-5">
+        <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">
+          Categories
         </h3>
 
         <nav className="space-y-1">
           <button
             type="button"
             onClick={() => onSelectCategory?.("")}
-            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
+            className={cn(
+              "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200",
               !selectedCategory
                 ? "bg-primary text-primary-foreground shadow-sm"
-                : "hover:bg-muted text-foreground"
-            }`}
+                : "hover:bg-muted/80 text-foreground"
+            )}
           >
-            <div className="text-left">
+            <span
+              className={cn(
+                "flex items-center justify-center w-9 h-9 rounded-lg text-base shrink-0",
+                !selectedCategory ? "bg-primary-foreground/15" : "bg-muted"
+              )}
+            >
+              🏪
+            </span>
+            <div className="min-w-0 flex-1">
               <p className="font-medium text-sm">All Categories</p>
               <p
-                className={`text-xs ${
+                className={cn(
+                  "text-xs",
                   !selectedCategory ? "text-primary-foreground/70" : "text-muted-foreground"
-                }`}
+                )}
               >
                 {totalCount.toLocaleString()} listing{totalCount !== 1 ? "s" : ""}
               </p>
@@ -66,38 +76,33 @@ export default function CategoriesSidebar({
                 key={category.id}
                 type="button"
                 onClick={() => onSelectCategory?.(category.id.toString())}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
+                className={cn(
+                  "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200",
                   isSelected
                     ? "bg-primary text-primary-foreground shadow-sm"
-                    : "hover:bg-muted text-foreground"
-                }`}
+                    : "hover:bg-muted/80 text-foreground"
+                )}
               >
-                <div className="flex items-center gap-3 flex-1 min-w-0 text-left">
-                  <span
-                    className={`flex items-center justify-center w-8 h-8 rounded-lg text-lg ${
-                      isSelected ? "bg-primary-foreground/20" : "bg-muted"
-                    }`}
+                <span
+                  className={cn(
+                    "flex items-center justify-center w-9 h-9 rounded-lg text-lg shrink-0",
+                    isSelected ? "bg-primary-foreground/15" : "bg-muted"
+                  )}
+                >
+                  {category.icon}
+                </span>
+
+                <div className="min-w-0 flex-1">
+                  <p className="font-medium text-sm truncate">{category.name}</p>
+                  <p
+                    className={cn(
+                      "text-xs",
+                      isSelected ? "text-primary-foreground/70" : "text-muted-foreground"
+                    )}
                   >
-                    {category.icon}
-                  </span>
-
-                  <div className="min-w-0">
-                    <p className="font-medium text-sm truncate">{category.name}</p>
-                    <p
-                      className={`text-xs ${
-                        isSelected ? "text-primary-foreground/70" : "text-muted-foreground"
-                      }`}
-                    >
-                      {listingCount.toLocaleString()} listing{listingCount !== 1 ? "s" : ""}
-                    </p>
-                  </div>
+                    {listingCount.toLocaleString()} listing{listingCount !== 1 ? "s" : ""}
+                  </p>
                 </div>
-
-                <ChevronRight
-                  className={`w-4 h-4 ml-2 shrink-0 ${
-                    isSelected ? "text-primary-foreground" : "text-muted-foreground"
-                  }`}
-                />
               </button>
             );
           })}

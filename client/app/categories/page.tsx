@@ -12,14 +12,14 @@ export default function CategoriesPage() {
       <Header />
 
       {/* Header */}
-      <div className="bg-primary text-white">
-        <div className="container mx-auto px-4 py-12">
-          <Link href="/" className="flex items-center gap-2 text-white/80 hover:text-white mb-4 w-fit">
-            <ArrowLeft className="w-5 h-5" />
-            Back
+      <div className="page-banner text-primary-foreground">
+        <div className="container mx-auto px-4 py-10 md:py-14 relative">
+          <Link href="/" className="inline-flex items-center gap-2 text-primary-foreground/75 hover:text-primary-foreground mb-5 w-fit text-sm transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to home
           </Link>
-          <h1 className="text-4xl font-bold mb-2">Browse All Categories</h1>
-          <p className="text-white/90">Explore over 600,000+ items across different categories</p>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Browse Categories</h1>
+          <p className="text-primary-foreground/75 text-sm md:text-base">Find what you need across campus listings</p>
         </div>
       </div>
 
@@ -30,21 +30,23 @@ export default function CategoriesPage() {
             <Link
               key={category.id}
               href={`/categories/${category.id}`}
-              className="group bg-card rounded-lg border border-border p-6 hover:shadow-lg hover:border-primary transition-all duration-300"
+              className="group card-elevated p-6 flex flex-col"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="text-5xl">{category.icon}</div>
-                <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition" />
+              <div className="flex items-start justify-between mb-5">
+                <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-muted text-3xl group-hover:scale-105 transition-transform">
+                  {category.icon}
+                </span>
+                <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
               </div>
 
-              <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition">
+              <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {category.name}
               </h3>
 
-              <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center justify-between text-sm mt-auto">
                 <span className="text-muted-foreground">{category.count.toLocaleString()} listings</span>
                 <div className="flex items-center gap-1 text-accent">
-                  <TrendingUp className="w-4 h-4" />
+                  <TrendingUp className="w-3.5 h-3.5" />
                   <span className="text-xs font-semibold">Trending</span>
                 </div>
               </div>
@@ -53,30 +55,30 @@ export default function CategoriesPage() {
         </div>
 
         {/* Info Section */}
-        <div className="mt-16 bg-card rounded-lg border border-border p-8">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Why Shop on ASTU Gebeya?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-16 card-elevated p-8 md:p-10">
+          <h2 className="text-2xl font-bold text-foreground mb-6 tracking-tight">Why ASTU Gebeya?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex gap-4">
-              <div className="text-4xl flex-shrink-0">🛡️</div>
+              <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-2xl shrink-0">🛡️</span>
               <div>
-                <h3 className="font-bold text-foreground mb-1">Safe & Secure</h3>
-                <p className="text-sm text-muted-foreground">Verified sellers and secure transactions</p>
+                <h3 className="font-semibold text-foreground mb-1">Safe & Secure</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Verified sellers and secure on-campus meetups</p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="text-4xl flex-shrink-0">⚡</div>
+              <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-accent/20 text-2xl shrink-0">⚡</span>
               <div>
-                <h3 className="font-bold text-foreground mb-1">Fast Delivery</h3>
-                <p className="text-sm text-muted-foreground">On-campus delivery within hours</p>
+                <h3 className="font-semibold text-foreground mb-1">Campus Local</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Meet sellers right on ASTU campus</p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="text-4xl flex-shrink-0">💰</div>
+              <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-2xl shrink-0">💰</span>
               <div>
-                <h3 className="font-bold text-foreground mb-1">Great Prices</h3>
-                <p className="text-sm text-muted-foreground">Competitive pricing from campus vendors</p>
+                <h3 className="font-semibold text-foreground mb-1">Student Prices</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Great deals from fellow students</p>
               </div>
             </div>
           </div>

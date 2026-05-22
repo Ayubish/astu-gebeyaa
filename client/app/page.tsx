@@ -23,19 +23,21 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header onSellClick={handleSellClick} />
-
       <HeroSection onSearch={handleSearch} />
 
-      <div className="flex">
+      <div className="flex flex-1">
         <CategoriesSidebar
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
         />
-        <div className="flex-1 min-w-0">
-          <ListingsGrid searchQuery={searchQuery} selectedCategory={selectedCategory} />
-        </div>
+        <ListingsGrid
+          searchQuery={searchQuery}
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+          showMobileCategories
+        />
       </div>
 
       <Footer />
