@@ -6,9 +6,9 @@ Students can browse listings, save favorites, register as buyers or sellers, pos
 
 ## Tech Stack
 
-| Layer | Technologies |
-|-------|----------------|
-| **Frontend** | Next.js 16, React 19, Tailwind CSS v4, TypeScript |
+| Layer                  | Technologies                                                     |
+| ---------------------- | ---------------------------------------------------------------- |
+| **Frontend**           | Next.js 16, React 19, Tailwind CSS v4, TypeScript                |
 | **Backend** (optional) | Express, Prisma, PostgreSQL — not wired to the UI for submission |
 
 ## Features
@@ -41,7 +41,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-### Backend (optional — not used by UI)
+### Backend
 
 ```bash
 cd server
@@ -62,12 +62,13 @@ astu-gebeya/
 └── README.md
 ```
 
-## Notes for Evaluators
-
-- Product images live in `client/public/images/`.
-- User-created listings and favorites persist in the browser only.
-- The Express API in `server/` can be connected later; the client intentionally uses mock data for this submission timeline.
-
 ## Team
 
 ASTU — Web Programming, Group Final Project.
+
+1. Ayana Samuel - ugr/30201/15
+2. Ayub Nasir - ugr/30219/15
+3. Gemechu Alemu - ugr/30589/15
+4. Megersa Tekalign - ugr/31494/15
+5. Meklit H/Michael - ugr/30878/15
+6. Milion Mengistu - ugr/30932/15
