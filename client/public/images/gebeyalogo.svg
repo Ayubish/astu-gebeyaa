@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" fill="#1e3a5f"/>
+  <circle cx="60" cy="60" r="48" fill="#f5c842"/>
+  <path d="M35 75 L60 35 L85 75 Z" fill="#1e3a5f"/>
+  <rect x="48" y="58" width="24" height="20" rx="2" fill="#1e3a5f"/>
+  <text x="60" y="105" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#1e3a5f">ASTU</text>
+</svg>
