@@ -1,6 +1,6 @@
 # ASTU Gebeya
 
-Campus marketplace web application — **final group project** for the Web Programming course at Addis Ababa Science and Technology University (ASTU).
+Campus marketplace web application — **final group project** for the Web Programming course.
 
 Students can browse listings, save favorites, register as buyers or sellers, post items (demo mode), and contact sellers — all powered by **mock data and browser local storage** (no database required for the demo).
 
